@@ -1,0 +1,43 @@
+angular.module:
+    >> ex: angular.module("nome_do_modulo", []);
+        >> [] representa os módulos a serem importados.
+    >> faz a criação do módulo.
+
+ng-controller:
+    >> ex: <body ng-controller="listaTelefonicaCtrl"></body>
+    >> elemento da view no controller
+
+ng-bind:
+    >> ng-bind="app" == {{app}}
+        >> <h4 ng-bind="app"> </h4>
+        >> <h4> {{app}} </h4>
+
+ng-repeat:
+    >> repetição em arrays
+
+ng-model:
+    >> inverso do ng-bind
+    >> pega da view e define no scope 
+
+ng-click:
+    >> atribuindo comportamento ao evento click de um mouse
+
+ng-disabled:
+    >> recebe uma expression
+    >> pode desabilitar um campo/botao
+
+ng-options:
+    >> renderiza opções de um select
+
+ng-class e ng-style:
+    >> classes CSS e estilos dinamicamente
+
+ng-show, ng-hide e ng-if:
+    >> ng-show e ng-hide: mostram/escondem o elemento, mas o elemento continua existindo, é alterado apenas a visibilidade
+    >> ng-if: 
+        >> cria e remove o elemento, tirar elementos que consomem performance que não estão inicialmente visiveis.
+        >> lazy loading
+
+ng-include:
+    >> incluir outros códigos html dentro do código
+    >> Injeção AJAX -> pode ser bloqueado pelo Chrome
