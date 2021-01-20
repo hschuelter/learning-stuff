@@ -41,3 +41,126 @@ ng-show, ng-hide e ng-if:
 ng-include:
     >> incluir outros códigos html dentro do código
     >> Injeção AJAX -> pode ser bloqueado pelo Chrome
+
+form:
+    >> ng-required:
+        >> definir um campo como obrigatório.
+        >> $valid e $invalid: validade do formulario.
+    >> $pristine e $dirty: verificando se o formulario ou campo já foi utilizado alguma vez
+
+    >> ng-minlength e ng-maxlength: tamanho maximo e minimo do campo
+
+    >> $error: consulta os error de um campo ou formulário.
+
+    >> ng-pattern:
+        >> define uma RedExp para validar um campo
+
+filtros:
+    >> transformam o resultado de uma expressão.
+    >> formatacao de data, conversao de moeda e ordenacao de array.
+    >> utilizados com o pipe "|".
+
+    >> uppercase: string em letras maiusculas'.
+    >> date: formata uma data usando mascara.
+    >> filter: filtra um array com base em um critério.
+    >> orderBy: ordena um array com base em um critério.
+    >> currency: converte numero em moeda
+    >> number: formata um número
+    >> limitTo: limita o tamanho de um array ou uma string
+
+$http:
+    >> realizacao de requisicoes utilizando XMLHttpRequest:
+    >> get(url, config)
+    >> post(url, data, config)
+    >> put(url, data, config)
+    >> delete(url, config)
+    >> head(url, config)
+    >> jsonp(url, config)
+
+SOP - Same Origin Policy:
+    >> segurança
+    >> bloqueia chamadas AJAX
+    >> JSONP: json with padding
+    >> CORS: cross origin resource sharing
+
+AngularJS #7 ========================
+
+Inline Style:
+    >> tudo no mesmo arquivo
+    >> projetos muito simples
+    >> prototipos
+    >> provas de conceito
+
+Stereotyped Style:
+    >> componentes do mesmo tipo juntos
+    >> pastas de css(.css), js, lib, view(.html)
+    >> projetos pequenos
+    >> poucos componentes
+    >> pouco codigo em cada componente
+    >> dominio unico
+
+Specific Style:
+    >> um arquivo para cada componente
+    >> projetos médios
+    >> muitos componentes
+    >> numero de linhas comeca a incomodar
+    >> dominio relativamente extenso
+
+    >> js/
+        >> controllers/
+        >> directives/
+        >> services/
+        >> app.js
+
+Specific Style:
+    >> projetos grandes
+    >> módulos
+    >> app/
+        >> app/
+            >> app.css
+            >> app.js
+        >> login/
+            >> login.css
+            >> login.html
+            >> loginCtrol.js
+            >> loginService.js
+        >> lista/
+            >> lista.css
+            >> lista.html
+            >> listaCtrl.js
+            >> listaService.js
+        >> shared/
+            >> panelDirective.js
+            >> tableDirective.js
+        >> lib/
+            >> angular.js
+        >> index.html
+
+AngularJS #8 ========================
+Serviços:
+    >> Um serviço é um singleton criado na inicialização e fica disponível para ser injetado em outros componentes
+    >> Factory, Service, Provider, Value e Constant
+
+AngularJS #9 ========================
+Criando Filtros:
+    >> angular.module("nomeModulo").filter("nomeFilter), function ( {
+        return function (input) {
+            return output;
+        };
+    });
+    >> Filtro1 -> Formatar nomes para deixar a primeira letra maiuscula e o resto minusculo
+    >> Filtro2 -> ... quando nome é muito grande.
+
+AngularJS #10 =======================
+Diretivas:
+    >> angular.module("nomeModulo").directive("nomeDiretiva", function () {
+        return {
+            // Propriedades da Diretiva
+        };
+    });
+    >> template, templateUrl:
+        >> funciona similar ao ng-include
+    >> replace
+    >> restrict
+    >> scope
+    >> transclue
