@@ -1,3 +1,5 @@
+// chrome.exe --user-data-dir="C://Chrome dev session" --disable-web-security
+
 angular.module:
     >> ex: angular.module("nome_do_modulo", []);
         >> [] representa os módulos a serem importados.
@@ -184,3 +186,48 @@ Diretivas:
         >> estabelece vinculo com outra diretiva
     >> controller:
         >> definicao de uma API que pode ser compartilhada entre diretivas
+
+AngularJS #13 =======================
+
+    Modularização:
+        >> módulo é uma coleção de componentes
+        >> conjunto de controller, directives, filters, services e outros
+        >> var app = angular.module("nomeDoModulo", []);
+        >> por que criar outros módulos?
+            >> reuso
+            >> organizacao
+            >> performance, 
+                >> para o usuario final que utiliza apenas parte do sistema, não é necessario carregar o sistema inteiro
+            >> isolamento
+    
+        >> $templateCache:
+            >> template armazenado em cache.
+
+AngularJS #13 =======================
+    >> Single-Page Application:
+        >> aplicacao que realiza transições dentro de uma mesma página
+
+    >> ng-route:
+        >> padrão do angularjs
+        >> roteamento de páginas
+        >> <script src="lib/angular-route.js></div>
+
+        >> $routeProvider
+
+AngularJS #14 =======================
+interceptor:
+    >> interceptação de requisições e respostas $http
+    >> Timestamp Interceptor
+        >> marcação contendo um Timestamp em todas as requisições
+
+    >> Error Interceptor:
+        >> exibe tela de erro padrão caso requisicao http receba status 404.
+
+    >> Loading interceptor:
+        >> exibe imagem de loading enquanto tiver uma requisicao em andamento.
+
+AngularJS #16 =======================
+    >> Performance:
+        >> excesso de interação com a DOM
+        >> one time bind: '::' antes da variável
+        >> ng-model-options="{'updateOn: "default"'}"

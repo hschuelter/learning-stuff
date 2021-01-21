@@ -1,25 +1,13 @@
-angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, $filter, contatosAPI, operadorasAPI, serialGenerator) {
-    console.log(serialGenerator.generate())
+angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope, $filter, contatos, operadoras, serialGenerator) {
     $scope.app = "Lista Telefonica";
-    $scope.contatos = [];
-    $scope.operadoras = [];
+    $scope.contatos = contatos.data;
+    $scope.operadoras = operadoras.data;
 
-    var carregarContatos = function () {
-        contatosAPI.getContatos()
-        .then(function (response) {
-            $scope.contatos = response.data;
-        }, function (error) {
-            $scope.error = "Não foi possível carregar os dados...";
+    var generateSerial = function (contatos) {
+        contatos.forEach(function(item) {
+            item.serial = serialGenerator.generate();
         });
     };
-
-    var carregarOperadoras = function () {
-        operadorasAPI.getOperadoras()
-        .then(function successCallback(response) {
-            $scope.operadoras = response.data;
-        });
-    };
-
 
     $scope.adicionarContato = function (contato) {
         contato.serial = serialGenerator.generate();
@@ -52,6 +40,5 @@ angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($s
         $scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
     }
 
-    carregarContatos();
-    carregarOperadoras();
+    generateSerial($scope.contatos);
 });
