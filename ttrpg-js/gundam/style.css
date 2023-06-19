@@ -1,0 +1,94 @@
+.ability {
+    width:50%;
+  }
+  
+  .score {
+    width:90%;
+  }
+  
+  .points {
+    width:30%;
+  }
+  
+  .attack {
+    margin:none!important;
+  }
+  
+  th {
+    vertical-align: middle;
+  }
+  
+  .skills {
+    font-size:0.75rem;
+  }
+  
+  .themed-grid-col {
+    background-color: rgba(0,0,0,.01)!important;
+  }
+  
+  .characterDetails textarea {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width:100%;
+  }
+  
+  .table td {
+     width: auto;
+  }
+  
+  .table {
+    width: 100%!important;
+    padding:65;
+    margin:auto;
+  }
+  
+  .hide {
+    display:none;
+  }
+  
+  .show {
+    display:block!important;
+  }
+  
+  .powers {
+    text-align:left!important;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width:100%;
+    color: black!important;
+    background-color:lightgrey!important;
+    border-color:lightgrey!important;
+  }
+  
+  .feats {
+    width:100%;
+    overflow:auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  input {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color:rgba(0,0,0,0);
+        }
+  
+  select {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color:rgba(0,0,0,0);
+        }
+  textarea {
+        border-top-style: hidden;
+        border-right-style: hidden;
+        border-left-style: hidden;
+        border-bottom-style: hidden;
+        background-color:rgba(0,0,0,0);  
+  }

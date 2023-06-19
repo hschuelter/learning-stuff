@@ -1,0 +1,473 @@
+<link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/4.3/examples/grid/grid.css" rel="stylesheet">
+<link href="./style.css" rel="stylesheet">
+<script src="utils.js"></script>
+
+
+<div class="container">
+    <br>
+  <div class="row" id="controls">
+    <div class="col-md-4 themed-grid-col">
+      <h6>Damage/Healing (Armor)</h6>
+      <input id="damageArmor" type="number" class="ability" placeholder="Apply AP here"></input>
+    <button id="apply" class="btn btn-info" onclick="updateCurrentAP();">Apply</button>
+    </div>
+    <div class="col-md-4 themed-grid-col">
+      <h6>Damage/Healing (HP)</h6>
+      <input id="damageHP" type="number" class="ability" placeholder="Apply HP here"></input>
+    <button id="apply" class="btn btn-info" onclick="updateCurrentHP();">Apply</button>
+    </div>
+    <div class="col-md-4 themed-grid-col">
+      <h6>Recovery</h6>
+    <button id="shortRest" class="btn btn-info" onclick="shortRest();">Short Rest</button>
+      <button id="apply" class="btn btn-info" onclick="longRest();">Long Rest</button>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-xl-7 themed-grid-col">
+        <h3>Character Info</h3>
+            <table class="table table-hover">
+                <tr>
+                    <th>Character Name</th>
+                    <th>Class</th>
+                    <th>Character Level</th>
+                </tr>
+                <tr>
+                    <td><input id="name" type="text" placeholder="Type Name Here"></input></td>
+                    <td>
+                        <select class="" name="class" id="classSelect" onchange="selectClass();">
+                            <optgroup label="Select Class">
+                            <option value="guerilla">Guerilla</option>
+                            <option value="artillery">Artillery</option>
+                            <option value="cyber-newtype">Cyber-Newtype</option>
+                            <option value="infiltrator">Infiltrator</option>
+                            <option value="newtype">True Newtype</option>
+                            </opgroup>
+                        </select>
+                    </td>
+                    <td><input id="level" type="number" value="1" min="1" max="20" onchange="playerLevelChange();"></input></td>
+                </tr>
+            </table>
+       </div>
+      <div class="col-xl-5 themed-grid-col">
+        <td><h3 class="test">Mobile Suit</h3>
+          <table class="table table-hover">
+            <tr>
+              <th>
+                <select id="mobileSuit" class="" onchange="setMobileSuit(this);">
+                    <option value="rgm79">RGM-79 GM</option>
+                    <option value="ms05">MS-05 Zaku I</option>
+                    <option value="ms06">MS-06 Zaku II</option>
+                    <option value="rx78">RX-78-2 Gundam</option>
+                    <option value="custom">Custom</option>
+                </select>
+              </th>
+              <th colspan="2">
+                MS Proficiency
+                <select id="msProficiency" class="" onchange="setMaxMSStats();">
+                  <option value="none">None</option>
+                  <option value="half">Partial</option>
+                  <option value="full">Full</option>
+                </select>
+              </th>
+            </tr>
+            <tr>
+              <th>Armor: <input id="baseArmor" placeholder="8" class="points"></input></th>
+              <th>Evasion: <input id="baseEvasion" placeholder="8" class="points"></input></th>
+              <th>Loadout: <input id="baseLoadout" placeholder="8" class="points"></input></th>
+            </tr>
+          </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 themed-grid-col">
+        <table class="table table-hover">
+          <tr>
+            <th>Proficiency Bonus:</th>
+            <th><input id="proficiencyBonus" type="number" value="2" class="ability"></input></th>
+          </tr>
+          <tr>
+            <th>Walk Speed(m):</th>
+            <th><input id="walkSpeed" type="number" value="10" class="ability"></input></th>
+          </tr>
+        </table>
+        <table class="table table-hover">
+          <tr>
+            <th scope="col">Ability</th>
+            <th scope="col">Score</th>
+            <th scope="col">Modifier</th>
+          </tr>
+          <tr>
+            <th scope="row" data-toggle="tooltip" data-placement="top" title="Will">WIL</th>
+            <td><input id="willScore" type="number" value="10" onchange="updateModifiers();" class="score"></input></td>
+            <td><input id="willMod" type="number" value="0" class="ability"></input></td>
+          </tr>
+          <tr>
+            <th scope="row" data-toggle="tooltip" data-placement="top" title="Reactions">REA</th>
+            <td><input id="reactionsScore" type="number" value="10" onchange="updateModifiers();" class="score"></input></td>
+            <td><input id="reactionsMod" type="number" value="0" class="ability"></input></td>
+          </tr>
+          <tr>
+            <th scope="row"data-toggle="tooltip" data-placement="top" title="Engineering">ENG</th>
+            <td><input id="engineeringScore" type="number" value="10" onchange="updateModifiers();" class="score"></input></td>
+            <td><input id="engineeringMod" type="number" value="0" class="ability"></input></td>
+          </tr>
+          <tr>
+            <th scope="row" data-toggle="tooltip" data-placement="top" title="Mentality">MEN</th>
+            <td><input id="mentalityScore" type="number" value="10" onchange="updateModifiers();" class="score"></input></td>
+            <td><input id="mentalityMod" type="number" value="0" class="ability"></input></td>
+          </tr>
+          <tr>
+            <th scope="row" data-toggle="tooltip" data-placement="top" title="Psyche">PSY</th>
+            <td><input id="psycheScore" type="number" value="10" onchange="updateModifiers();" class="score"></input></td>
+            <td><input id="psycheMod" type="number" value="0" class="ability"></input></td>
+          </tr>
+          <tr>
+            <th scope="row" data-toggle="tooltip" data-placement="top" title="Cunning">CNG</th>
+            <td><input id="cunningScore" type="number" value="10" onchange="updateModifiers();" class="score"></input></td>
+            <td><input id="cunningMod" type="number" value="0" class="ability"></input></td>
+          </tr>
+        </table>
+        <h4>Mobile Suit Speeds</h4>
+        <table class="table table-hover">
+          <tr>
+            <th>Land Speed(m):</th>
+            <th><input id="landSpeed" type="number" value="50" class="score"></input></th>
+          </tr>
+          <tr>
+            <th>Air Speed(m):</th>
+            <th><input id="airSpeed" type="number" value="0" class="score"></input></th>
+          </tr>
+          <tr>
+            <th>Amphibious Speed(m):</th>
+            <th><input id="waterSpeed" type="number" value="30" class="score"></input></th>
+          </tr>
+          <tr>
+            <th>Zero-G Speed(m):</th>
+            <th><input id="spaceSpeed" type="number" value="50" class="score"></input></th>
+          </tr>
+        </table>
+      </div>
+      <div class="col-lg-6 themed-grid-col">
+        <div class="row">
+          <div class="col-md-6 themed-grid-col" data-toggle="tooltip" data-placement="top" title="MS Base Evasion + Reactions Modifier + Proficiency">Evasion Rate: <input id="evasionRate" type="number" placeholder="0" class="points"></input></div>
+          <div class="col-md-6 themed-grid-col" data-toggle="tooltip" data-placement="top" title="1d20 + Reactions Modifier">Initiative: <input id="initiative" type="number" value="" class="points"></input></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 themed-grid-col" data-toggle="tooltip" data-placement="top" title="(MS Base Armor + Engineering Modifier + Proficiency) x Level">
+            Armor: <input id="currentArmor" type="number" placeholder="10" class="points"></input> /
+            <input id="maxArmor" type="number" placeholder="10" class="points"></input>
+          </div>
+          <div class="col-md-6 themed-grid-col" data-toggle="tooltip" data-placement="top" title="10 + Will Modifier">
+            HP: <input id="currentHP" type="number" value="10" class="points"></input> /
+            <input id="maxHP" type="number" value="10" class="points"></input>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col themed-grid-col attack">
+            <table class="col">
+              <tr>
+                <th colspan="3">Weapon/Attack 1: <input id="attack1" type="text"></input></th>
+              </tr>
+              <tr>
+                <th>Range: <input id="range1" placeholder="8" class="points"></input></th>
+                <th>To Hit: <input id="hitBonus1" placeholder="8" class="points"></input></th>
+                <th>Damage: <input id="damage1" placeholder="1d4 + WIL" class="ability"></input></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col themed-grid-col attack">
+            <table class="col">
+              <tr>
+                <th colspan="3">Weapon/Attack 2: <input id="attack2" type="text"></input></th>
+              </tr>
+              <tr>
+                <th>Range: <input id="range2" placeholder="8" class="points"></input></th>
+                <th>To Hit: <input id="hitBonus2" placeholder="8" class="points"></input></th>
+                <th>Damage: <input id="damage2" placeholder="1d4 + WIL" class="ability"></input></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col themed-grid-col attack">
+            <table class="col">
+              <tr>
+                <th colspan="3">Weapon/Attack 3: <input id="attack3" type="text"></input></th>
+              </tr>
+              <tr>
+                <th>Range: <input id="range3" placeholder="8" class="points"></input></th>
+                <th>To Hit: <input id="hitBonus3" placeholder="8" class="points"></input></th>
+                <th>Damage: <input id="damage3" placeholder="1d4 + WIL" class="ability"></input></th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 themed-grid-col">Newtype Attack Bonus: <input id="newtypeAttack" type="number" value="0" class="points"></input></div>
+          <div class="col-md-6 themed-grid-col">Newtype Ability Save: <input id="newtypeSave" type="number" value="8" class="points"></input></div>
+        </div>
+        <div class="row">
+          <div class="col themed-grid-col attack">
+            <h4>Proficiencies</h4>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col themed-grid-col attack">
+            <h4 data-toggle="tooltip" data-placement="top" title="CTRL+Click to select Add/Remove">Feats</h4>
+          <div class="col themed-grid-col">
+            <div id="featSection" class="row">
+            <div class="col-4">
+                <select class="feats" id="availableFeats" multiple="multiple" size="7">
+                  <option value="Dueling">Dueling</option>
+                  <option value="Two-WeaponFighting">Two-Weapon Fighting</option>
+                  <option value="Grappler">Grappler</option>
+                  <option value="WeaponMaster">Weapon Master</option>
+                </select>
+              </div>
+              <div class="col-4">
+                <input class="feats" id="addFeat" onclick="addFeat()" ;="" value="Add >" type="button" disabled>
+                <br>
+                <input class="feats" id="removeFeat" onclick="removeFeat()" ;="" value="Remove <" type="button" disabled>
+              </div>
+              <div class="col-4">
+                <select class="feats" id="selectedFeats" multiple="multiple" size="7">  
+                </select>
+              </div>  
+            </div>
+          </div>
+          </div>
+        </div>
+      <div class="row">
+        <div class="col themed-grid-col attack">
+            <h4>Newtype Powers</h4>
+            Newtype Points: <input id="currentNewtypePoints" type="number" placeholder="0" class="points"></input> /
+            <input id="maxNewtypePoints" type="number" placeholder="0" class="points"></input><br><br>
+            <div class="col themed-grid-col">
+              <div id="newtypePowersSection" class="row">
+                <div class="col-4">
+                  <select class="feats" id="availableNewtypePowers" multiple="multiple" size="7">
+                  </select>
+                </div>
+              <div class="col-4">
+                <input class="feats" id="addNewtypePower" onclick="addNewtypePower()" ;="" value="Add >" type="button">
+                <br>
+                <input class="feats" id="removeNewtypePower" onclick="removeNewtypePower()" ;="" value="Remove <" type="button" disabled>
+                <br><br>
+                <input class="feats" id="castNewtypePower" onclick="castNewtypePower()" ;="" value="Use Power" type="button">
+              </div>
+              <div class="col-4">
+                <select class="feats" id="selectedNewtypePowers" multiple="multiple" size="7">  
+                </select>
+              </div>  
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 themed-grid-col">
+        <h3>Skills</h3>
+        <table class="table table-hover skills">
+          <tr>
+            <th><input id="acrobaticsProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Acrobatics: </th>
+            <th><input id="acrobatics" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="agsmProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>AGSM: </th>
+            <th><input id="agsm" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="athleticsProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Athletics: </th>
+            <th><input id="athletics" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="colonyProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Colony Knowledge: </th>
+            <th><input id="colony" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="computerProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Computer Use: </th>
+            <th><input id="computer" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="commandProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Command: </th>
+            <th><input id="command" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="deceptionProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Deception: </th>
+            <th><input id="deception" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="demolitionsProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Demolitions: </th>
+            <th><input id="demolitions" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="historyProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>History: </th>
+            <th><input id="history" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="insightProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Insight: </th>
+            <th><input id="insight" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="intimidationProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Intimidation: </th>
+            <th><input id="intimidation" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="investigationProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Investigation: </th>
+            <th><input id="investigation" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="landProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Land Knowledge: </th>
+            <th><input id="land" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="newtypeProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Newtype Intuition: </th>
+            <th><input id="newtype" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="perceptionProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Perception: </th>
+            <th><input id="perception" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="persuasionProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Persuasion: </th>
+            <th><input id="persuasion" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="repairProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Repair: </th>
+            <th><input id="repair" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="salvageProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Salvage: </th>
+            <th><input id="salvage" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="sleightProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Sleight of Hand: </th>
+            <th><input id="sleight" type="number" class="score"></input></th>
+          </tr>
+          <tr>
+            <th><input id="stealthProf" type="checkbox" onchange="setSkills();"></input></th>
+            <th>Stealth: </th>
+            <th><input id="stealth" type="number" class="score"></input></th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+    <hr class="my-4">
+
+<div class="row">
+  <div class="col-lg-12 themed-grid-col">
+    <h3>Background</h3>
+    <div class="col-lg-12 themed-grid-col characterDetails"><textarea id="characterBackground" rows="5"></textarea></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 themed-grid-col">
+    <h3>Traits</h3>
+    <div class="col-lg-12 themed-grid-col characterDetails"><textarea id="characterTraits" rows="3"></textarea></div>
+  </div>
+  <div class="col-lg-3 themed-grid-col">
+    <h3>Flaws</h3>
+    <div class="col-lg-12 themed-grid-col characterDetails"><textarea id="characterFlaws" rows="3"></textarea></div>
+  </div>
+  <div class="col-lg-3 themed-grid-col">
+    <h3>Bond</h3>
+    <div class="col-lg-12 themed-grid-col characterDetails"><textarea id="characterBond" rows="3"></textarea></div>
+  </div>
+  <div class="col-lg-3 themed-grid-col">
+    <h3>Ideal</h3>
+    <div class="col-lg-12 themed-grid-col characterDetails"><textarea id="characterIdeal" rows="3"></textarea></div>
+  </div>
+</div>
+
+<br><br>
+
+
+               <select class="feats " id="cyberNewtypePowers" multiple="multiple" size="7">
+                 <optgroup label="Feints" id="cyberNewtype0" disabled>
+                 <option groupid="0" value="Dueling">Cyber Newtype Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 1 Powers" id="cyberNewtype1" disabled>
+                    <option groupid="2" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 2 Powers" id="cyberNewtype2" disabled>
+                    <option groupid="2" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 3 Powers" id="cyberNewtype3" disabled>
+                    <option groupid="5" value="Dueling">Cyber Newtype Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 4 Powers" id="cyberNewtype4" disabled>
+                    <option groupid="6" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 5 Powers" id="cyberNewtype5" disabled>
+                    <option groupid="7" value="Dueling">Cyber Newtype Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 6 Powers" id="cyberNewtype6" disabled>
+                    <option groupid="9" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 7 Powers" id="cyberNewtype7" disabled>
+                    <option groupid="10" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 8 Powers" id="cyberNewtype8" disabled>
+                    <option groupid="11" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 9 Powers" id="cyberNewtype9" disabled>
+                    <option groupid="13" value="Dueling">Dueling</option>
+                 </optgroup>
+                </select>
+
+                <select class="feats " id="trueNewtypePowers" multiple="multiple" size="7">
+                <optgroup label="Feints" id="trueNewtype0" disabled>
+                 <option groupid="0" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 1 Powers" id="trueNewtype1" disabled>
+                    <option groupid="2" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 2 Powers" id="trueNewtype2" disabled>
+                    <option groupid="2" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 3 Powers" id="trueNewtype3" disabled>
+                    <option groupid="5" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 4 Powers" id="trueNewtype4" disabled>
+                    <option groupid="6" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 5 Powers" id="trueNewtype5" disabled>
+                    <option groupid="7" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 6 Powers" id="trueNewtype6" disabled>
+                    <option groupid="9" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 7 Powers" id="trueNewtype7" disabled>
+                    <option groupid="10" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 8 Powers" id="trueNewtype8" disabled>
+                    <option groupid="11" value="Dueling">Dueling</option>
+                 </optgroup>
+                 <optgroup label="Level 9 Powers" id="trueNewtype9" disabled>
+                    <option groupid="13" value="Dueling">Dueling</option>
+                 </optgroup>
+                </select>
+
+  </div>
