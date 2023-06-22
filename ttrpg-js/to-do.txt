@@ -1,0 +1,5 @@
+I need to:
+  - Stylize.
+  - Organize in different files.
+  - Javascript.
+  - <input type="text"> a lot of stuff

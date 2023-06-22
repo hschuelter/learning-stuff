@@ -6,7 +6,6 @@ body {
 .content {
     color: white;
     display: flex;
-    height: 400px;
 
     padding: 20px;
 
@@ -15,25 +14,42 @@ body {
 .column {
     /* width: 5%; */
     flex: 1;
-    height: 400px;
+    text-align: center;
 
 
-    /* background-color: #fff; */
+    background-color: #fff;
+    border-radius: 5px;
+
     color: white;
+    margin-right: 20px;
     
 }
 
+.bold {
+    font-weight: bold;
+}
+
+.grey {
+    background-color: #eee;
+}
+
+.center {
+    text-align: center
+}
+
+.right {
+    text-align: right
+}
 /* GENERAL CHARACTER STATS */
 .character-info-container {
     /* width: 35%; */
     flex: 7;
     display: flex;
-    height: 400px;
 
 
     background-color: #fff;
     color: white;
-    border-radius: 4px;
+    border-radius: 5px;
     padding: 10px;
 
 }
@@ -47,6 +63,7 @@ body {
 
 .character-identity {
     display: flex;
+    margin-bottom: 20px;
 }
 
 .character-photo {
@@ -68,22 +85,164 @@ body {
     margin-left: 5px;
     padding: 5px;
     
-    background-color: #eee;
+    border-radius: 5px;
+}
+
+.meta-actions {
+    height: 40px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.meta-button {
+    height: 30px;
+
+    border-radius: 20px;
+    flex: 1;
+    text-align: center;
+    
+    border: 1px solid black;
+    background-color: blue;
+}
+
+.meta-stats {
+    height: 60px;
+    display: flex;
+    margin-bottom: 10px;
+
+    color: black;
+    text-align: center;
+}
+
+.experience {
+    flex: 1;
+    margin-right: 5px;
+    border-radius: 5px;
+
+}
+
+.inspiration {
+    flex: 1;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.size {
+    flex: 1;
+    border-radius: 5px;
+
+}
+
+.combat-stats {
+    height: 90px;
+    display: flex;
+    margin-bottom: 10px;
+
+    color: black;
+    text-align: center;
+}
+
+
+.health-stats {
+    flex: 1;
+    font-size: 20px;
+    margin-right: 5px;
+
+}
+
+.temporary-health {
+    flex: 1;
+    font-size: 20px;
+
+}
+
+.armor-class {
+    flex: 1;
+}
+
+.initiative {
+    flex: 1;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.speed {
+    flex: 1;
+    font-size: 20px;
+
+}
+
+.main-stats {
+    height: 60px;
+    display: flex;
+    margin-bottom: 10px;
+
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.str {
+    flex: 1;
+}
+
+.dex {
+    flex: 1;
+}
+
+.con {
+    flex: 1;
+}
+
+.int {
+    flex: 1;
+}
+
+.wis {
+    flex: 1;
+}
+
+.cha {
+    flex: 1;
 }
 
 .character-skills {
-    background-color: #eee;
     color: black;
     flex: 1;
-    height: 400px;   
     margin-left: 5px;
+    border-radius: 5px;
+
+}
+
+.skill-row {
+    display: flex;
+    margin: 0px 5px;
+}
+
+.skill-icon {
+    flex: 1;
+}
+
+.skill-icon-placeholder {
+    margin-top: 3px;
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+
+.skill-name {
+    flex: 10;
+}
+
+.skill-bonus {
+    flex: 1;
 }
 
 /* GENERAL CHARACTER ACTIONS */
 .actions-container {
     /* width: 55%; */
     flex: 11;
-    height: 400px;
 
     margin-left: 20px;
 
@@ -91,4 +250,10 @@ body {
     color: white;
     border-radius: 5px;
 
+}
+
+/* WIP */
+
+.wip {
+    border: 1px solid black;
 }
