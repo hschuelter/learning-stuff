@@ -2,9 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
-		<link href="https://getbootstrap.com/docs/4.3/examples/grid/grid.css" rel="stylesheet">
+        <!-- <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://getbootstrap.com/docs/4.3/examples/grid/grid.css" rel="stylesheet"> -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/general.css">
     </head>
     
     <body>
@@ -14,98 +15,98 @@
             <!-- CENTER BLOCK -->
             
             <div class="character-info-container">
-                 <div class="character-stats">
-                    <div class="character-identity">
-                        <div class="character-photo">
+                 <div class="item-column">
+                    
+                    <div class="row light-font">
+                        <div class="item">
                             <div class="photo-placeholder wip"></div>
                         </div>
-                        <div class="character-name wip grey">
-                            <h4> Thalia Falkner </h4>
-                            <p> Human Bard </p>
+                        <div class="item border wip grey" style="flex:3;">
+                            <div> Thalia Falkner </div>
+                            <div> Human Bard </div>
                         </div>
                     </div>
 
-                    <div class="meta-actions">
-                        <div class="meta-button bold" style="margin-right: 5px;"> Level X </div>
-                        <div class="meta-button bold" style="margin-right: 5px;"> Short rest </div>
-                        <div class="meta-button bold"> Long rest </div>
+                    <div class="row center light-font">
+                        <div class="item button wip"> Level X </div>
+                        <div class="item button wip"> Short rest </div>
+                        <div class="item button wip"> Long rest </div>
                     </div>
 
-                    <div class="meta-stats">
-                        <div class="experience wip"> 
-                            <div class="bold"> Experience </div>
-                            <div> 1,000 xp </div>
+                    <div class="large-row center dark-font">
+                        <div class="item border wip"> 
+                            <div class="small-value center-vertical"> 1,000 xp </div>
+                            <div class="description"> Experience </div>
                         </div>
-                        <div class="inspiration wip"> 
-                            <div class="bold"> Inspiration </div>
-                            <div> 1 </div>
+                        <div class="item border wip"> 
+                            <div class="small-value center-vertical"> 1 </div>
+                            <div class="description"> Inspiration </div>
                         </div>
-                        <div class="size wip"> 
-                            <div class="bold"> Size </div>
-                            <div> Medium </div>
+                        <div class="item border wip"> 
+                            <div class="small-value center-vertical"> Medium </div>
+                            <div class="description"> Size </div>
                         </div>
                     </div>
 
-                    <div class="combat-stats">
-                        <div class="health-stats wip">
-                            <div class="health-point bold"> 16/20 </div>
+                    <div class="combat-row center dark-font">
+                        <div class="item border wip">
+                            <div class="value"> 16/20 </div>
                             <div class="health-bar"> ----  </div>
-                            <div> Health </div>
+                            <div class="description"> Health </div>
                         </div>
                         
-                        <div class="temporary-health wip">
-                            <div class="health-point bold"> 5 </div>
-                            <div class="health-bar"> - </div>
-                            <div> Temporary Health </div>
+                        <div class="item border wip">
+                            <div class="value center-vertical"> 5 </div>
+                            <div class="description"> Temporary Health </div>
                         </div>
                     </div>
 
-                    <div class="combat-stats">
-                        <div class="armor-class wip"> 
-                            <h1 class="bold"> 16 </h1>
-                            <div> AC </div>
+                    <div class="combat-row center dark-font">
+                        <div class="item border wip"> 
+                            <div class="value center-vertical"> 16 </div>
+                            <div class="description"> AC </div>
                         </div>
-                        <div class="initiative wip">
-                            <h1 class="bold"> +3 </h1>
-                            <div> Initiative </div>
+                        <div class="item border wip">
+                            <div class="value center-vertical"> +3 </div>
+                            <div class="description"> Initiative </div>
                         </div>
-                        <div class="speed wip"> 
-                            <h1 class="bold"> 25 ft. </h1>
-                            <div> Speed </div>
+                        <div class="item border wip"> 
+                            <div class="value center-vertical"> 25 ft. </div>
+                            <div class="description"> Speed </div>
                         </div>
                     </div>
 
-                    <div class="main-stats wip">
-                        <div class="str">
-                            <h4 class="center"> +1 </h4>
-                            <div class="center"> STR </div>
+                    <div class="large-row dark-font border wip">
+                        <div class="item">
+                            <div class="value dark-font"> +1 </div>
+                            <div class="description"> STR </div>
                         </div>
-                        <div class="dex">
-                            <h4 class="center"> +1 </h4>
-                            <div class="center"> DEX </div>
+                        <div class="item">
+                            <div class="value dark-font"> +1 </div>
+                            <div class="description"> DEX </div>
                         </div>
-                        <div class="con">
-                            <h4 class="center"> +1 </h4>
-                            <div class="center"> CON </div>
+                        <div class="item">
+                            <div class="value dark-font"> +1 </div>
+                            <div class="description"> CON </div>
                         </div>
-                        <div class="int">
-                            <h4 class="center"> +1 </h4>
-                            <div class="center"> INT </div>
+                        <div class="item">
+                            <div class="value dark-font"> +1 </div>
+                            <div class="description"> INT </div>
                         </div>
-                        <div class="wis">
-                            <h4 class="center"> +1 </h4>
-                            <div class="center"> WIS </div>
+                        <div class="item">
+                            <div class="value dark-font"> +1 </div>
+                            <div class="description"> WIS </div>
                         </div>
-                        <div class="cha">
-                            <h4 class="center"> +1 </h4>
-                            <div class="center"> CHA </div>
+                        <div class="item">
+                            <div class="value dark-font"> +1 </div>
+                            <div class="description"> CHA </div>
                         </div>
                     </div>
 
                  </div>
 
 
-                 <div class="character-skills wip grey">
+                 <div class="item wip-column dark-font border wip grey">
                     <div class="skill-row">
                         <div class="skill-icon">
                             <div class="skill-icon-placeholder wip"></div>

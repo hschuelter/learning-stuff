@@ -1,7 +1,27 @@
-body {
-    background-color: #eee;
+@font-face {
+    font-family: Fondamento;
+    src: url(fonts/Fondamento-Regular.ttf);
 }
 
+@font-face {
+    font-family: Draconis;
+    src: url(fonts/Draconis.ttf);
+}
+
+@font-face {
+    font-family: PirataOne;
+    src: url(fonts/PirataOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Squealer;
+    src: url(fonts/Squealer.otf);
+}
+
+body {
+    background-color: #eee;
+    font-family: Squealer;
+}
 
 .content {
     color: white;
@@ -12,7 +32,6 @@ body {
 }
 
 .column {
-    /* width: 5%; */
     flex: 1;
     text-align: center;
 
@@ -25,25 +44,14 @@ body {
     
 }
 
-.bold {
-    font-weight: bold;
+.detail {
+    bottom: 0;
 }
 
-.grey {
-    background-color: #eee;
-}
-
-.center {
-    text-align: center
-}
-
-.right {
-    text-align: right
-}
 /* GENERAL CHARACTER STATS */
+
 .character-info-container {
-    /* width: 35%; */
-    flex: 7;
+    flex: 8;
     display: flex;
 
 
@@ -55,155 +63,110 @@ body {
 }
 
 .character-stats {
-    /* background-color: green; */
     flex: 1;
-    height: 400px;
     margin-right: 5px;
 }
 
-.character-identity {
+/*************** NEW STUFF ***************/
+
+.row {
+    height: auto;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
-.character-photo {
-    flex: 1;
-    height: 80px;
-    margin-right: 5px;
+.large-row {
+    height: 50px;
+    display: flex;
+    margin-bottom: 10px;
 }
+
+.combat-row {
+    height: 90px;
+    display: flex;
+    margin-bottom: 10px;
+
+}
+
+.item {
+    flex: 1;
+    margin-right: 5px;
+    position: relative;
+
+}
+
+.item:last-child {
+    flex: 1;
+    margin-right: 0px;
+}
+
+.item-column {
+    flex: 1;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+.item-column:last-child {
+    flex: 1;
+    margin-right: 0px;
+}
+
+.item .value {
+    font-weight: bold;
+    text-align: center;
+
+    font-size: 32px;
+}
+
+.item .small-value {
+    font-weight: bold;
+    text-align: center;
+
+    font-size: 16px;
+}
+
+.item .center-vertical {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+}
+
+.item .description {
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(128, 128, 128);
+    text-align: center;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: blue;
+    cursor: pointer;
+    
+    padding: 5px;
+    font-weight: bold;
+}
+
+.border {
+    border-radius: 5px;
+}
+
+/*************** OLD STUFF ***************/
+
+
+/*****************************************/
+
 
 .photo-placeholder {
     height: 80px;
     width: 80px;
     background-color: #bbb;
     border-radius: 50%;
-}
-
-.character-name {
-    flex: 3;
-    height: 80px;
-    margin-left: 5px;
-    padding: 5px;
-    
-    border-radius: 5px;
-}
-
-.meta-actions {
-    height: 40px;
-    display: flex;
-    margin-bottom: 10px;
-}
-
-.meta-button {
-    height: 30px;
-
-    border-radius: 20px;
-    flex: 1;
-    text-align: center;
-    
-    border: 1px solid black;
-    background-color: blue;
-}
-
-.meta-stats {
-    height: 60px;
-    display: flex;
-    margin-bottom: 10px;
-
-    color: black;
-    text-align: center;
-}
-
-.experience {
-    flex: 1;
-    margin-right: 5px;
-    border-radius: 5px;
-
-}
-
-.inspiration {
-    flex: 1;
-    margin-right: 5px;
-    border-radius: 5px;
-}
-
-.size {
-    flex: 1;
-    border-radius: 5px;
-
-}
-
-.combat-stats {
-    height: 90px;
-    display: flex;
-    margin-bottom: 10px;
-
-    color: black;
-    text-align: center;
-}
-
-
-.health-stats {
-    flex: 1;
-    font-size: 20px;
-    margin-right: 5px;
-
-}
-
-.temporary-health {
-    flex: 1;
-    font-size: 20px;
-
-}
-
-.armor-class {
-    flex: 1;
-}
-
-.initiative {
-    flex: 1;
-    font-size: 20px;
-    margin-right: 5px;
-}
-
-.speed {
-    flex: 1;
-    font-size: 20px;
-
-}
-
-.main-stats {
-    height: 60px;
-    display: flex;
-    margin-bottom: 10px;
-
-    color: black;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.str {
-    flex: 1;
-}
-
-.dex {
-    flex: 1;
-}
-
-.con {
-    flex: 1;
-}
-
-.int {
-    flex: 1;
-}
-
-.wis {
-    flex: 1;
-}
-
-.cha {
-    flex: 1;
 }
 
 .character-skills {
@@ -241,8 +204,7 @@ body {
 
 /* GENERAL CHARACTER ACTIONS */
 .actions-container {
-    /* width: 55%; */
-    flex: 11;
+    flex: 12;
 
     margin-left: 20px;
 
@@ -256,4 +218,8 @@ body {
 
 .wip {
     border: 1px solid black;
+}
+
+.help {
+    background-color: red;
 }
