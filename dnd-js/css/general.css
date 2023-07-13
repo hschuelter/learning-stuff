@@ -1,0 +1,32 @@
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+.grey {
+    background-color: #eee;
+}
+
+.light-blue {
+    background-color: #f2f6fc;
+}
+
+.dark-font {
+    color: black;
+}
+
+.light-font {
+    color: white;
+}

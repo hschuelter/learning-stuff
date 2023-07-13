@@ -1,0 +1,219 @@
+@font-face {
+    font-family: Draconis;
+    src: url(fonts/Draconis.ttf);
+}
+
+@font-face {
+    font-family: PirataOne;
+    src: url(fonts/PirataOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: Squealer;
+    src: url(fonts/Squealer.otf);
+}
+
+body {
+    background-color: #eee;
+    font-family: Squealer;
+}
+
+.content {
+    color: white;
+    display: flex;
+
+    padding: 20px;
+
+}
+
+.column {
+    flex: 1;
+    text-align: center;
+
+
+    background-color: #fff;
+    color: white;
+    margin-right: 20px;
+    
+}
+
+.detail {
+    bottom: 0;
+}
+
+/* GENERAL CHARACTER STATS */
+
+.character-info-container {
+    flex: 8;
+    display: flex;
+
+
+    background-color: #fff;
+    color: white;
+    padding: 15px;
+
+}
+
+.character-stats {
+    flex: 1;
+    margin-right: 5px;
+}
+
+/*************** NEW STUFF ***************/
+
+.row {
+    height: auto;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.large-row {
+    height: 50px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.combat-row {
+    height: 90px;
+    display: flex;
+    margin-bottom: 10px;
+
+}
+
+.item {
+    flex: 1;
+    margin-right: 5px;
+    position: relative;
+}
+
+.item:last-child {
+    flex: 1;
+    margin-right: 0px;
+}
+
+.item-column {
+    flex: 1;
+    margin-right: 20px;
+    position: relative;
+
+}
+
+.item-column:last-child {
+    flex: 1;
+    margin-right: 0px;
+}
+
+.item .value {
+    font-family: Squealer;
+    font-size: 32px;
+    
+    text-align: center;
+}
+
+.item .small-value {
+    font-family: Squealer;
+    font-size: 16px;
+    
+    text-align: center;
+}
+
+.item .center-vertical {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+}
+
+.item .description {
+    color: rgb(128, 128, 128);
+    font-family: Draconis;
+    font-size: 18px; 
+    
+    text-align: center;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.button {
+    border-radius: 20px;
+    background-color: #0958ce;
+    cursor: pointer;
+    
+    padding: 5px;
+}
+
+.border {
+    border-radius: 5px;
+}
+
+/*************** OLD STUFF ***************/
+
+.health-total {
+    margin: 0% 10%;
+    background-color: #fff;
+    color: #ddd;
+    border-radius: 10px;
+
+    border: #0958ce solid;
+    
+}
+
+.health-bar {
+    background-color: #0958ce;
+    width: 80%;
+}
+
+/*****************************************/
+
+
+.photo-placeholder {
+    height: 80px;
+    width: 80px;
+    background-color: #bbb;
+    border-radius: 50%;
+}
+
+
+.skill-row {
+    display: flex;
+    margin: 0px 5px;
+}
+
+.skill-icon {
+    flex: 1;
+}
+
+.skill-name {
+    font-family: Draconis;
+    flex: 10;
+}
+
+.skill-bonus {
+    flex: 1;
+}
+
+.skill-category {
+    font-family: Draconis;
+    flex: 1;
+}
+
+/* GENERAL CHARACTER ACTIONS */
+.actions-container {
+    flex: 12;
+
+    margin-left: 20px;
+
+    background-color: #fff;
+    color: white;
+}
+
+/* WIP */
+
+.wip {
+    border: 1px solid black;
+}
+
+.help {
+    background-color: red;
+}

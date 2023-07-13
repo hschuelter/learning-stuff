@@ -1,0 +1,52 @@
+{
+    "PROF_BON": "Proficiency Bonus",
+
+    "SMALL_STR": "STR",
+    "SMALL_DEX": "DEX",
+    "SMALL_CON": "CON",
+    "SMALL_INT": "INT",
+    "SMALL_WIS": "WIS",
+    "SMALL_CHA": "CHA",
+
+    "STAT_STR": "Strength",
+    "STAT_DEX": "Dexterity",
+    "STAT_CON": "Constitution",
+    "STAT_INT": "Intelligence",
+    "STAT_WIS": "Wisdom",
+    "STAT_CHA": "Charisma",
+
+
+    "SKILL_ACR": "Acrobatics (Dex)",
+    "SKILL_ANI": "Animal Handling (Wis)",
+    "SKILL_ARC": "Arcana (Int)",
+    "SKILL_ATH": "Athletics (Str)",
+    "SKILL_DEC": "Deception (Cha)",
+    "SKILL_HIS": "History (Int)",
+    "SKILL_INS": "Insight (Wis)",
+    "SKILL_INT": "Intimidation (Cha)",
+    "SKILL_INV": "Investigation (Int)",
+    "SKILL_MED": "Medicine (Wis)",
+    "SKILL_NAT": "Nature (Int)",
+    "SKILL_PRC": "Perception (Wis)",
+    "SKILL_PRF": "Performance (Cha)",
+    "SKILL_PRS": "Persuasion (Cha)",
+    "SKILL_REL": "Religion (Int)",
+    "SKILL_SOH": "Sleight of Hand (Dex)",
+    "SKILL_STE": "Stealth (Dex)",
+    "SKILL_SUR": "Survival (Wis)",
+
+
+    "DESC_EXP": "Experience",
+    "DESC_INS": "Inspiration",
+    "DESC_SIZ": "Size",
+    "DESC_HLT": "Health",
+    "DESC_THL": "Temporary Health",
+    "DESC_ARM": "AC",
+    "DESC_INI": "Initiative",
+    "DESC_SPE": "Speed",
+    "DESC_FEA": "Feats",
+
+
+
+    "LAST": "LAST"
+}

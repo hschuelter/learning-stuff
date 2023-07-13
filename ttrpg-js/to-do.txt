@@ -1,13 +1,13 @@
-I need to:
-	- Stylize.
-	- Organize in different files.
-	- Javascript.
-	- <input type="text"> a lot of stuff
+- HEALTH BAR
+    <div class="item border light-blue">
+        <div class="value"> 16/20 </div>
+        <div class="health-total">
+            <div class="health-bar">&nbsp;</div>    
+        </div>
+        <div class="description"> Health </div>
+    </div>
 
-	- simplify tags:
-		- large row: AC, initiative, speed
-		- small row: exp, inspiration, size
-		- button row: level up, short rest, long rest
+- colocar o light-blue no item e trocar a cor
 
-		- all stat description (experience, initiative, AC): bottom of the large div
-		- make (almost) everything the same div class
+- https://mui.com/
+- https://getbootstrap.com/docs/4.0/components/modal/
