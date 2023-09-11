@@ -1,9 +1,15 @@
 import words from './data/words.json'
 import './App.css';
 
+/* Material UI */
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import AppBar from '@mui/material/AppBar';
+
+/* Custom UI */
 import Proficiency from './components/proficiency';
 import Skill from './components/skills';
-import Button from './components/button';
+import Button1 from './components/button';
 import StatItem from './components/statItem';
 import Item from './components/item';
 import CharacterInfo from './components/character-info';
@@ -31,10 +37,22 @@ function stringify(num) {
 
 
 function App() {
+	const menuId = 'primary-search-account-menu';
+	const mobileMenuId = 'primary-search-account-menu-mobile';
+
 	var info = {
 		character_name: 'Thalia Falkner',
 		character_race: 'Human', 
-		character_class: ['Bard']
+		character_class: [
+			{ 
+				name: 'Bard',
+				lvl: 2
+			}, 
+			{ 
+				name: 'Fighter',
+				lvl: 1
+			}
+		]
 	}
 
 	var stats = {
@@ -65,21 +83,30 @@ function App() {
 			<link rel="icon" href="img/dnd-icon.png" />
 			<link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css" />
 		</head>
+		<AppBar position="static">
+			Teste
+		</AppBar>
 
 		<div class="content">
-			<div class="column border"> A </div>
-			
-			<div class="character-info-container border">
+			<Paper class="column border" elevation={3}> 
+				<CharacterInfo  
+					character_name={info.character_name}
+					race={info.character_race}
+					class={info.character_class} />
+			</Paper>
+		</div>	
+
+
+
+		<div class="content">		
+			<Paper class="column border">
 				<div class="item-column">
-					
-					<CharacterInfo  character_name={info.character_name}
-									race={info.character_race}
-									class={info.character_class} />
 
 					<div class="row center light-font">
-						<Button title={'Level ' + stats.lvl} />
-						<Button title='Short rest' />
-						<Button title='Long rest' />
+						<Button variant="outlined"> {'Level ' + stats.lvl} </Button>
+						{/* <Button1 title={'Level ' + stats.lvl} /> */}
+						<Button1 title='Short rest' />
+						<Button1 title='Long rest' />
 					</div>
 
 					<div class="large-row dark-font">
@@ -95,7 +122,7 @@ function App() {
 						<Item value={stats.temp_health} description={words.DESC_THL} flex={1}/>
 					</div>
 
-					<div class="combat-row dark-font">
+					<div class="large-row dark-font">
 						<Item value={stats.ac} description={words.DESC_ARM} flex={1}/>
 						<Item value={translateStats(stats.dex)} description={words.DESC_INI} flex={1}/>
 						<Item value={stats.speed + ' ft.'} description={words.DESC_SPE} flex={1}/>
@@ -156,8 +183,9 @@ function App() {
 					<div class="skill-category"> Skills </div>
 
 				</div>
-			</div>
-			<div class="actions-container border"> C </div>
+			</Paper>
+
+			<Paper class="column border"> C </Paper>
 		</div>
 	</div>
 	);

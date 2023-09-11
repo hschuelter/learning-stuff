@@ -15,19 +15,20 @@
 
 body {
     background-color: #282c34;
-    font-family: Squealer;
+    font-family: Draconis;
 }
 
 .content {
-    color: white;
+    color: black;
     display: flex;
 
-    padding: 20px;
+    padding: 10px 20px;
 
 }
 
 .column {
     flex: 1;
+    display: flex;
     text-align: center;
 
 
@@ -36,25 +37,16 @@ body {
     margin-right: 20px;
     
 }
+.column:last-child {
+    margin-right: 0px;
+}
 
 .detail {
     bottom: 0;
 }
 
-/* GENERAL CHARACTER STATS */
-
-.character-info-container {
-    flex: 8;
-    display: flex;
-
-
-    background-color: #fff;
-    color: white;
-    padding: 15px;
-
-}
-
 .character-content {
+    text-align: left;
     transform: translateY(50%);
 }
 
@@ -64,7 +56,7 @@ body {
 
 
 .character-content .title {
-    font-size: calc(10% + 2vmin);
+    font-size: calc(15% + 1vmin);
     color: rgb(128, 128, 128);
     font-family: Draconis;
 }
@@ -219,15 +211,6 @@ body {
     text-align: center;
 }
 
-/* GENERAL CHARACTER ACTIONS */
-.actions-container {
-    flex: 12;
-
-    margin-left: 20px;
-
-    background-color: #fff;
-    color: white;
-}
 
 /* WIP */
 
