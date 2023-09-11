@@ -52,7 +52,7 @@ get_json(url)
 
 
 // -      name  -- OK
-// -     types 
-// - abilities  -- OK
+// -     types  -- OK
+// - abilities  -- 
 // -    height  -- OK
 // -    weight  -- OK
