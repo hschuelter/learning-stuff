@@ -1,10 +1,32 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  background-color: white;
+  width: 100%;
 }
 /* ********************************************************* */
+
+body {
+  background-color: white;
+}
+
 ul {
   list-style-type: none;
+}
+
+header {
+  z-index: 1;
+  text-align: center;
+  background: #131313;
+  /* background: #262626; */
+  color: white;
+  vertical-align: top;
+
+  position: fixed;
+  width: 100%;
+
+  font-size: 48px;
+  font-weight: bolder;
+
+  border-bottom: 1px solid #fff;
 }

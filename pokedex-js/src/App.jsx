@@ -6,7 +6,8 @@ import './css/style.css'
 import pokedexData from '../data/poke.json';
 
 import Pokedex from './components/Pokedex';
-import Download from './components/Download'
+import Download from './components/Download';
+import { AppBar, Card, Paper, Input } from '@mui/material';
 
 function App() {
 	const [count, setCount] = useState(0);
@@ -14,7 +15,9 @@ function App() {
 
 	return (
 	<>
-		<h1><code>pokedex-js</code></h1>
+		<header>
+			<code>pokedex-js</code>
+		</header>
 
 		<Pokedex 
 			data = {pokedexData}

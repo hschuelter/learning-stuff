@@ -1,27 +1,83 @@
 import React from 'react';
+import {forwardRef, useImperativeHandle, useRef} from 'react';
+
 
 import PokeInfo from './PokeInfo';
-import Card from '@mui/material/Card';
+import { Button, IconButton, InputBase, Paper } from '@mui/material';
+import UndoIcon from '@mui/icons-material/Undo';
+import SearchIcon from '@mui/icons-material/Search';
+
 
 
 
 function Pokedex ({ data }) {
-    var list = [];
+    var dataList = [];
+    var pokemonList = [];
+    const refList = [];
+    const [searchValue, setSearchValue] = React.useState('');
+
+
+    const onClick = () => {
+        refList.map((item) => {
+            item.current.showIt();
+        });
+    };
+
+    const handleSearchChange = event => {
+        var searching = event.target.value;
+        setSearchValue(searching);
+
+        
+        for (var i = 0; i < pokemonList.length; i++) {
+            var inlcudesInName = pokemonList[i].props.name.indexOf(searching) >= 0;
+            var includesInType = false;
+
+            pokemonList[i].props.types.map( (type) => {
+                if (type.indexOf(searching) >= 0){
+                    includesInType = true;
+                }
+            });
+
+            if (inlcudesInName || includesInType) {
+                console.log(pokemonList[i].props.name + ' - ' + pokemonList[i].props.name.indexOf(searching));
+                refList[i].current.showIt();
+            } 
+            else {
+                refList[i].current.hideIt();
+            }
+        }
+    };
 
     for (let i = 0; i < data.length; i++){
+        refList.push(useRef());
         data[i].number = i + 1;
-        list.push(data[i]);
+        dataList.push(data[i]);
+        pokemonList.push(
+            <PokeInfo
+                number = {data[i].number}
+                name = {data[i].name}
+                types = {data[i].types} 
+                ref = {refList[i]} />
+        );
     }
 
 	return (
-        <div class="pokedex">
-            {list.map((item) => 
-                <PokeInfo
-                    number = {item.number}
-                    name = {item.name}
-                    types = {item.types}
-                />
-            )}
+        <div>
+            <div>
+                <Paper className="search-area" elevation={3}>
+                    <input value={searchValue} onChange={handleSearchChange} name="search" type="text" placeholder='Search'/>
+                    <IconButton aria-label="search">
+                        <SearchIcon />
+                    </IconButton>
+                    <IconButton aria-label="reset" onClick={onClick}>
+                        <UndoIcon />
+                    </IconButton>
+                </Paper>
+            </div>
+
+            <div className="pokedex">
+                {pokemonList.map((item) => item)}
+            </div>
         </div>
 	);
 }
