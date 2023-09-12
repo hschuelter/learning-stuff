@@ -57,6 +57,9 @@ function Pokedex ({ data }) {
                 number = {data[i].number}
                 name = {data[i].name}
                 types = {data[i].types} 
+                height = {data[i].height} 
+                weight = {data[i].weight} 
+                abilities = {data[i].abilities} 
                 ref = {refList[i]} />
         );
     }
