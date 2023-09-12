@@ -39,7 +39,6 @@ function Pokedex ({ data }) {
             });
 
             if (inlcudesInName || includesInType) {
-                console.log(pokemonList[i].props.name + ' - ' + pokemonList[i].props.name.indexOf(searching));
                 refList[i].current.showIt();
             } 
             else {

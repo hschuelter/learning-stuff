@@ -13,8 +13,6 @@ function calculateWidth (baseStat, total) {
 function chooseBackgroundColor (baseStat, total) {
     var percentage = (baseStat / total);
 
-    console.log(percentage);
-
     if (percentage < 0.3) {
         return '#ff5757';
     }
@@ -75,7 +73,6 @@ function DetailedInfo ({ number, name, types, height, weight, abilities }) {
             const response = await fetch(url);
             const data = await response.json();
             setStats(data.stats)
-            console.log(stats);
         
             setIsLoading(false);
         } catch (error) {
